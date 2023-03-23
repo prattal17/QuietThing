@@ -24,6 +24,18 @@ ZLIB maybe? eh...too soon.
 ## Project status
 Just getting started.
 
+## Environment Setup
+Inside the qorc-sdk folder run the follwing
+
+...
+source envsetup.sh
+...
+
+## FAQ
+
+Q: It says I need libncurses.so.5, how do I get that?
+
+A: For Ubuntu, follow the instructions here: https://askubuntu.com/questions/1252062/how-to-install-libncurses-so-5-in-ubuntu-20-04?fbclid=IwAR2RaNvIVp9oU-ZcTWfNV5b5YPDBCLh8nVEkv-yaZcHqBHZqbe7Pt_uPvps 
 
 ## Using arm-none-eabi-gdb
 ```
@@ -34,3 +46,5 @@ Just getting started.
 (gdb) attach 1
 ...
 (gdb)
+...
+
