@@ -1,7 +1,7 @@
 # flingthing
 
 ## Description
-The complete scope of this project is not yet determined. But we'll be using the Sparkfun QuickLogic Thing Plus platform. We'll start with getting the board up and running and getting familiar with working on the platform. Eventually we'll work up to running a realtime OS on an optimized soft core processor for a streaming data application.
+The goal of this project is to implement Active Noise Cancellation on a Sparkfun QuickLogic Thing Plus platform. We'll start with getting the board up and running and getting familiar with working on the platform. Eventually we'll work up to running a realtime OS on an optimized soft core processor for streaming and processing audio.
 
 ## Installation
 git clone this repo.
