@@ -23,3 +23,14 @@ ZLIB maybe? eh...too soon.
 
 ## Project status
 Just getting started.
+
+
+## Using arm-none-eabi-gdb
+```
+> arm-none-eabi-gdb
+...
+(gdb) target extended-remote /dev/ttyACM0
+...
+(gdb) attach 1
+...
+(gdb)
