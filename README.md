@@ -27,9 +27,9 @@ Just getting started.
 ## Environment Setup
 Inside the qorc-sdk folder run the follwing
 
-...
+```
 source envsetup.sh
-...
+
 
 ## FAQ
 
@@ -46,5 +46,5 @@ A: For Ubuntu, follow the instructions here: https://askubuntu.com/questions/125
 (gdb) attach 1
 ...
 (gdb)
-...
+
 
