@@ -37,6 +37,8 @@ Q: It says I need libncurses.so.5, how do I get that?
 
 A: For Ubuntu, follow the instructions here: https://askubuntu.com/questions/1252062/how-to-install-libncurses-so-5-in-ubuntu-20-04?fbclid=IwAR2RaNvIVp9oU-ZcTWfNV5b5YPDBCLh8nVEkv-yaZcHqBHZqbe7Pt_uPvps 
 
+For Fedora install ncurses-compat-libs
+
 ## Using arm-none-eabi-gdb
 ```
 > arm-none-eabi-gdb
