@@ -1,0 +1,88 @@
+#ARG IMAGE="ubuntu"
+
+#---
+# Place anything that is common to both the build and execution environment in base 
+#
+FROM ubuntu:latest AS base
+
+SHELL ["/bin/bash", "-c"]
+
+RUN apt-get update -qq \
+ && DEBIAN_FRONTEND=noninteractive apt-get -y install --no-install-recommends \
+    ca-certificates \
+    clang \
+    cmake \
+    curl \
+    git \
+    python3 \
+    libffi-dev \
+    libreadline-dev \
+    tcl-dev \
+    graphviz \
+    wget \
+    xdot \
+    libboost-system-dev \
+    libboost-python-dev \
+    libboost-filesystem-dev \
+    zlib1g-dev \
+ && apt-get autoclean && apt-get clean && apt-get -y autoremove \
+ && update-ca-certificates \
+ && rm -rf /var/lib/apt/lists
+
+#RUN mkdir "/opt/f4pga"
+#ENV INSTALL_DIR="/opt/f4pga"
+ENV PATH="$INSTALL_DIR/install/bin:$INSTALL_DIR/install/bin/python:$PATH"
+
+FROM base AS build
+
+RUN apt-get update -qq \
+ && DEBIAN_FRONTEND=noninteractive apt-get -y install --no-install-recommends \
+    bison \
+    build-essential \
+    flex \
+    gawk \
+    git \
+    iverilog \
+    pkg-config \
+    xz-utils
+
+# RUN apt update -y
+# RUN apt install -y git wget xz-utils
+
+RUN git clone https://github.com/chipsalliance/f4pga-examples
+RUN cd f4pga-examples
+WORKDIR /f4pga-examples
+
+RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O conda_installer.sh
+
+ENV F4PGA_INSTALL_DIR=/opt/f4pga
+ENV FPGA_FAM=eos-s3
+
+#RUN echo $F4PGA_INSTALL_DIR
+
+RUN bash conda_installer.sh -u -b -p $F4PGA_INSTALL_DIR/$FPGA_FAM/conda;
+ENV PATH=$PATH:$F4PGA_INSTALL_DIR/$FPGA_FAM/conda/condabin:$F4PGA_INSTALL_DIR/$FPGA_FAM/conda/bin
+ENV PATH=$PATH:$F4PGA_INSTALL_DIR/$FPGA_FAM/conda/etc/profile.d/conda.sh
+RUN . "$F4PGA_INSTALL_DIR/$FPGA_FAM/conda/etc/profile.d/conda.sh";
+#COPY $F4PGA_INSTALL_DIR/$FPGA_FAM/environment.yml .
+RUN conda env create -f $FPGA_FAM/environment.yml
+
+ENV F4PGA_PACKAGES='install-ql ql-eos-s3_wlcsp'
+
+RUN mkdir -p $F4PGA_INSTALL_DIR/$FPGA_FAM
+
+ENV F4PGA_TIMESTAMP='20220920-124259'
+ENV F4PGA_HASH='007d1c1'
+
+RUN for PKG in $F4PGA_PACKAGES; do wget -qO- https://storage.googleapis.com/symbiflow-arch-defs/artifacts/prod/foss-fpga-tools/symbiflow-arch-defs/continuous/install/${F4PGA_TIMESTAMP}/symbiflow-arch-defs-${PKG}-${F4PGA_HASH}.tar.xz | tar -xJC $F4PGA_INSTALL_DIR/${FPGA_FAM}; done 
+
+#RUN conda init
+RUN source activate eos-s3
+
+# Build the container with something like:
+# docker build . -t f4pga-ubuntu
+
+# Run bash in the container interactively with something like:
+# docker run -it f4pga-ubuntu bash
+
+
