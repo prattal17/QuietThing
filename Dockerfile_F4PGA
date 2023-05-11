@@ -77,7 +77,7 @@ ENV F4PGA_HASH='007d1c1'
 RUN for PKG in $F4PGA_PACKAGES; do wget -qO- https://storage.googleapis.com/symbiflow-arch-defs/artifacts/prod/foss-fpga-tools/symbiflow-arch-defs/continuous/install/${F4PGA_TIMESTAMP}/symbiflow-arch-defs-${PKG}-${F4PGA_HASH}.tar.xz | tar -xJC $F4PGA_INSTALL_DIR/${FPGA_FAM}; done 
 
 #RUN conda init
-RUN source activate eos-s3
+#RUN source activate eos-s3
 
 # Build the container with something like:
 # docker build . -t f4pga-ubuntu
