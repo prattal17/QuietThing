@@ -25,6 +25,8 @@ RUN apt-get update -qq \
     libboost-python-dev \
     libboost-filesystem-dev \
     zlib1g-dev \
+    nano \
+    vim \
  && apt-get autoclean && apt-get clean && apt-get -y autoremove \
  && update-ca-certificates \
  && rm -rf /var/lib/apt/lists
