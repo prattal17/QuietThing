@@ -85,4 +85,7 @@ RUN for PKG in $F4PGA_PACKAGES; do wget -qO- https://storage.googleapis.com/symb
 # Run bash in the container interactively with something like:
 # docker run -it f4pga-ubuntu bash
 
+# Before you start coding, run the following command inside the docker container:
+# source activate eos-s3
+
 
