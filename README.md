@@ -3,7 +3,7 @@
 ## Description
 The goal of this project is to implement Active Noise Cancellation on a Sparkfun QuickLogic Thing Plus platform. We'll start with getting the board up and running and getting familiar with working on the platform. Eventually we'll work up to running a realtime OS on an optimized soft core processor for streaming and processing audio.
 
-This project is still in its infancy, most of our notes and progress is documented in the Wiki, especially in [Notes] (https://gitlab.com/mccormjf/quietthing/-/wikis/Notes)
+This project is still in its infancy, most of our notes and progress is documented in the Wiki, especially in [Notes](https://gitlab.com/mccormjf/quietthing/-/wikis/Notes)
 
 ## Installation
 git clone this repo.
