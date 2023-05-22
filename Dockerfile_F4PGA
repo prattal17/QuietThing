@@ -78,6 +78,14 @@ ENV F4PGA_HASH='007d1c1'
 
 RUN for PKG in $F4PGA_PACKAGES; do wget -qO- https://storage.googleapis.com/symbiflow-arch-defs/artifacts/prod/foss-fpga-tools/symbiflow-arch-defs/continuous/install/${F4PGA_TIMESTAMP}/symbiflow-arch-defs-${PKG}-${F4PGA_HASH}.tar.xz | tar -xJC $F4PGA_INSTALL_DIR/${FPGA_FAM}; done 
 
+#Checkout *f4pga-arch-defs* repository
+WORKDIR /
+RUN git clone https://github.com/f4pga/f4pga-arch-defs.git
+RUN cd f4pga-arch-defs
+WORKDIR /f4pga-arch-defs
+
+RUN make env
+
 #RUN conda init
 #RUN source activate eos-s3
 
@@ -86,8 +94,4 @@ RUN for PKG in $F4PGA_PACKAGES; do wget -qO- https://storage.googleapis.com/symb
 
 # Run bash in the container interactively with something like:
 # docker run -it f4pga-ubuntu bash
-
-# Before you start coding, run the following command inside the docker container:
-# source activate eos-s3
-
 
