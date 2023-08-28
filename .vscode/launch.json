@@ -30,6 +30,38 @@
             //         { "type": "console", "label": "ITM", "port": 0 }
             //     ]
             // }
-        }
+        },
+        {
+        "name": "BMP Attach",
+        "type": "cortex-debug",
+        "servertype": "bmp",
+        "request": "attach",
+        "cwd": "${workspaceRoot}",
+        "gdbPath": "/home/avery/Downloads/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gdb",
+        "executable": "/home/avery/m4test/GCC_Project/output/bin/qt_helloworldsw.elf", // replace with your executable
+        //"preLaunchTask": "Build STM", // using stm32-for-vscode extension, this is the build task
+        "interface": "swd",
+        "device": "EOS-S3",
+        "BMPGDBSerialPort": "localhost:2000", // Use whatever serial port makes sense for your OS and BMP setup
+        "svdFile": "/home/avery/F4PGA/eos-s3.svd",
+        "showDevDebugOutput": "raw"
+        //"runToEntryPoint": "main" // runToMain is deprecated.
+    },
+    {
+        "name": "BMP Debug",
+        "type": "cortex-debug",
+        "servertype": "bmp",
+        "request": "launch",
+        "cwd": "${workspaceRoot}",
+        "gdbPath": "/home/avery/Downloads/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gdb",
+        "executable": "/home/avery/m4test/GCC_Project/output/bin/qt_helloworldsw.elf", // replace with your executable
+        //"preLaunchTask": "Build STM", // using stm32-for-vscode extension, this is the build task
+        "interface": "swd",
+        "device": "EOS-S3",
+        "BMPGDBSerialPort": "localhost:2000", // Use whatever serial port makes sense for your OS and BMP setup
+        "svdFile": "/home/avery/F4PGA/eos-s3.svd",
+        "showDevDebugOutput": "raw"
+        //"runToEntryPoint": "main" // runToMain is deprecated.
+    }
     ]
 }
