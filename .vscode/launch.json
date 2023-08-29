@@ -42,7 +42,7 @@
         //"preLaunchTask": "Build STM", // using stm32-for-vscode extension, this is the build task
         "interface": "swd",
         "device": "EOS-S3",
-        "BMPGDBSerialPort": "localhost:2000", // Use whatever serial port makes sense for your OS and BMP setup
+        "BMPGDBSerialPort": "localhost:2000", // This connects it to the Black Magic Server you should have running ahead of time
         "svdFile": "/home/avery/F4PGA/eos-s3.svd",
         "showDevDebugOutput": "raw"
         //"runToEntryPoint": "main" // runToMain is deprecated.
@@ -58,7 +58,7 @@
         //"preLaunchTask": "Build STM", // using stm32-for-vscode extension, this is the build task
         "interface": "swd",
         "device": "EOS-S3",
-        "BMPGDBSerialPort": "localhost:2000", // Use whatever serial port makes sense for your OS and BMP setup
+        "BMPGDBSerialPort": "localhost:2000", // This connects it to the Black Magic Server you should have running ahead of time
         "svdFile": "/home/avery/F4PGA/eos-s3.svd",
         "showDevDebugOutput": "raw"
         //"runToEntryPoint": "main" // runToMain is deprecated.
