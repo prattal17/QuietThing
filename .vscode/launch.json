@@ -11,7 +11,7 @@
             "servertype": "openocd",
             "cwd": "${workspaceRoot}",
             "gdbPath": "/home/avery/Downloads/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gdb",
-            //"preLaunchTask": "./openocd -f /home/avery/openocd-pico/tcl/interface/cmsis-dap.cfg -c \"adapter speed 5000\" -f /home/avery/openocd-pico/tcl/target/eos_s3.cfg -d -f /home/avery/F4PGA/builds/top.openocd",
+            //"preLaunchTask": 
             "runToEntryPoint": "true",
             "executable": "/home/avery/F4PGA/builds/top.elf",
             "device": "EOS-S3",
